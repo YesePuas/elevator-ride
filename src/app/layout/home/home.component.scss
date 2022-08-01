@@ -1,0 +1,74 @@
+@import "../../../style/mixins.scss";
+
+.main-title {
+  line-height: 30px;
+  font-size: 35px;
+  font-weight: bold;
+  color: #ffa200;
+  margin: 30px 0px;
+  text-align: center;
+}
+
+.container-section {
+  display: grid;
+  width: 100%;
+  gap: 15px;
+  @include extrasmall {
+    grid-template-columns: 1fr;
+  }
+
+  @include small {
+    grid-template-columns: 1fr;
+  }
+
+  @include desktop {
+    height: 80%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.container-image {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.image {
+  width: 80%;
+}
+
+.continer-article {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  @include extrasmall {
+    text-align: justify;
+    margin: 10%;
+  }
+
+  @include small {
+    text-align: justify;
+    margin: 10%;
+  }
+
+  @include desktop {
+    text-align: left;
+  }
+}
+
+.information {
+  color: #141414;
+  @include extrasmall {
+    font-size: 12px;
+  }
+
+  @include small {
+    font-size: 14px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+  }
+}
