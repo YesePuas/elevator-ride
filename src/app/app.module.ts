@@ -33,6 +33,9 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { SignInService } from './module/sign-in/sign-in.service';
+import { AuthService } from './module/auth/auth.service';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,11 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [Endpoints, Patterns],
+  providers: [
+    Endpoints,
+    Patterns,
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })

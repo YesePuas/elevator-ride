@@ -3,19 +3,22 @@
 .main-container {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.main-container > form {
+  gap: 10px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
-  font-weight: bold;
 }
 
-.img-construction {
+.card-form {
   @include extrasmall {
-    width: 90%;
+    width: 100%;
   }
 
   @include small {
-    width: 60%;
+    width: 70%;
   }
 
   @include desktop {
@@ -23,6 +26,11 @@
   }
 }
 
-.btn-go-home {
-  margin-top: 20px;
+.label {
+  font-size: 13px;
+  color: rgb(45, 45, 45);
+}
+
+.btn-crear-user {
+  margin-top: 10px;
 }

@@ -1,19 +1,101 @@
 <section class="main-container">
-  <img
-    class="img-construction"
-    src="../../../assets/images/grafico-marketing-construccion.png"
-    alt=""
-  />
-  Estamos en construyendo la mejor experienia para ti, intentalo mas tarde.
-  <button
-    class="btn-go-home"
-    nbButton
-    shape="semi-round"
-    hero
-    status="warning"
-    (click)="goHome()"
-  >
-    Ir a la pagina principal
-  </button>
+  <nb-card class="card-form" [nbSpinner]="loading" nbSpinnerStatus="warning">
+    <nb-card-header class="title-logIn">
+      <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
+      Registrar Admin
+    </nb-card-header>
+    <nb-card-body>
+      <section class="main-container">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <nb-form-field>
+            <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
+            <input
+              type="text"
+              fullWidth
+              nbInput
+              placeholder="Email"
+              autocomplete="off"
+              formControlName="email"
+            />
+          </nb-form-field>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="lock-outline" pack="eva"></nb-icon>
+            <input
+              [type]="getInputType()"
+              fullWidth
+              nbInput
+              placeholder="Contraseña"
+              formControlName="password"
+            />
+            <button
+              type="button"
+              nbSuffix
+              nbButton
+              ghost
+              (click)="toggleShowPassword()"
+            >
+              <nb-icon
+                [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                pack="eva"
+                [attr.aria-label]="
+                  showPassword ? 'hide password' : 'show password'
+                "
+              >
+              </nb-icon>
+            </button>
+          </nb-form-field>
+          <nb-form-field>
+            <input
+              type="text"
+              fullWidth
+              nbInput
+              placeholder="Nombre Completo"
+              autocomplete="off"
+              formControlName="nombre"
+            />
+          </nb-form-field>
+          <nb-form-field>
+            <input
+              type="text"
+              fullWidth
+              nbInput
+              placeholder="Numero de cedula"
+              autocomplete="off"
+              formControlName="cedula"
+            />
+          </nb-form-field>
+          <nb-form-field>
+            <input
+              type="text"
+              fullWidth
+              nbInput
+              placeholder="Numero de telefono"
+              autocomplete="off"
+              formControlName="telefono"
+            />
+          </nb-form-field>
+          <nb-form-field>
+            <input
+              type="text"
+              fullWidth
+              nbInput
+              placeholder="Direccion"
+              autocomplete="off"
+              formControlName="direccion"
+            />
+          </nb-form-field>
+          <button
+            class="btn-crear-user"
+            nbButton
+            shape="semi-round"
+            hero
+            status="warning"
+            [disabled]="!userForm.valid"
+          >
+            Registrar
+          </button>
+        </form>
+      </section>
+    </nb-card-body>
+  </nb-card>
 </section>
-c

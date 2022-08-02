@@ -24,6 +24,7 @@ export class ClientFormComponent implements OnInit {
 
   public clientForm = new FormGroup({
     id: new FormControl(''),
+    rol: new FormControl('cliente'),
     nombre: new FormControl('', Validators.required),
     cedula: new FormControl('', Validators.required),
     telefono: new FormControl('', Validators.required),
@@ -67,6 +68,8 @@ export class ClientFormComponent implements OnInit {
         });
     }
     if (!this.action) {
+      delete this.clientForm.value.id;
+      console.log('this.clientForm.value', this.clientForm.value);
       const responde = await this.ClientService.addClient(
         this.clientForm.value
       );
