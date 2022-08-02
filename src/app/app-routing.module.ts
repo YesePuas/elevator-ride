@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './module/auth/auth.component';
 import { HomeComponent } from './layout/home/home.component';
+import { SignInComponent } from './module/sign-in/sign-in.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,
+  },
+  {
+    path: 'signIn',
+    component: SignInComponent,
   },
   {
     path: 'client',

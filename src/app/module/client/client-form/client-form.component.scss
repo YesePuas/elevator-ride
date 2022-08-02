@@ -1,0 +1,26 @@
+@import "../../../../style/mixins.scss";
+
+.main-container > form {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-form {
+  @include extrasmall {
+    width: 100%;
+  }
+
+  @include small {
+    width: 70%;
+  }
+
+  @include desktop {
+    width: 500px;
+  }
+}
+
+.btn-crear-user {
+  margin-top: 10px;
+}

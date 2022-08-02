@@ -1,1 +1,54 @@
-<p>auth works!</p>
+<section class="main-container">
+  <header class="title-logIn">Welcome Back!</header>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <nb-form-field>
+      <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
+      <input
+        type="text"
+        fullWidth
+        nbInput
+        placeholder="Email"
+        autocomplete="off"
+        formControlName="email"
+      />
+    </nb-form-field>
+    <nb-form-field>
+      <nb-icon nbPrefix icon="lock-outline" pack="eva"></nb-icon>
+      <input
+        [type]="getInputType()"
+        fullWidth
+        nbInput
+        placeholder="Contraseña"
+        formControlName="password"
+      />
+      <button
+        type="button"
+        nbSuffix
+        nbButton
+        ghost
+        (click)="toggleShowPassword()"
+      >
+        <nb-icon
+          [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+          pack="eva"
+          [attr.aria-label]="showPassword ? 'hide password' : 'show password'"
+        >
+        </nb-icon>
+      </button>
+    </nb-form-field>
+    <button
+      class="btn-logIn"
+      nbButton
+      shape="semi-round"
+      hero
+      status="warning"
+      [disabled]="!loginForm.valid"
+    >
+      Inciar Sesion
+    </button>
+  </form>
+  <article>
+    No tienes cuenta?
+    <span class="action-register" (click)="register()">Registrate</span>
+  </article>
+</section>

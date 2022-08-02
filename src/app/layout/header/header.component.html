@@ -10,10 +10,15 @@
   <article>
     <ul class="lista">
       <li>
-        <a class="primary-action">Acceder</a>
+        <a routerLink="/home" [routerLinkActive]="'active'">Inicio</a>
       </li>
       <li>
-        <a class="secondary-action"> Registrarme</a>
+        <a
+          class="primary-action"
+          routerLink="/auth"
+          [routerLinkActive]="'active'"
+          >Acceder</a
+        >
       </li>
     </ul>
   </article>

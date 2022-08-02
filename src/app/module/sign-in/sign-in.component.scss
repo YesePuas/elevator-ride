@@ -1,0 +1,28 @@
+@import "../../../style/mixins.scss";
+
+.main-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  font-weight: bold;
+}
+
+.img-construction {
+  @include extrasmall {
+    width: 90%;
+  }
+
+  @include small {
+    width: 60%;
+  }
+
+  @include desktop {
+    width: 500px;
+  }
+}
+
+.btn-go-home {
+  margin-top: 20px;
+}

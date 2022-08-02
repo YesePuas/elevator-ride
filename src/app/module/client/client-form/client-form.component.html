@@ -1,0 +1,71 @@
+<nb-card class="card-form">
+  <nb-card-header class="title-logIn" *ngIf="!action">
+    <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
+    Registrar nuevo cliente
+  </nb-card-header>
+  <nb-card-header class="title-logIn" *ngIf="action == 'detail'">
+    <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
+    Detalle de cliente
+  </nb-card-header>
+  <nb-card-header class="title-logIn" *ngIf="action == 'edit'">
+    <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
+    Editar Cliente
+  </nb-card-header>
+  <nb-card-body>
+    <section class="main-container">
+      <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+        <nb-form-field>
+          <input
+            type="text"
+            fullWidth
+            nbInput
+            placeholder="Nombre Completo"
+            autocomplete="off"
+            formControlName="nombre"
+          />
+        </nb-form-field>
+        <nb-form-field>
+          <input
+            type="text"
+            fullWidth
+            nbInput
+            placeholder="Numero de cedula"
+            autocomplete="off"
+            formControlName="cedula"
+          />
+        </nb-form-field>
+        <nb-form-field>
+          <input
+            type="text"
+            fullWidth
+            nbInput
+            placeholder="Numero de telefono"
+            autocomplete="off"
+            formControlName="telefono"
+          />
+        </nb-form-field>
+        <nb-form-field>
+          <input
+            type="text"
+            fullWidth
+            nbInput
+            placeholder="Direccion"
+            autocomplete="off"
+            formControlName="direccion"
+          />
+        </nb-form-field>
+        <button
+          *ngIf="action !== 'detail'"
+          class="btn-crear-user"
+          nbButton
+          shape="semi-round"
+          hero
+          status="warning"
+          [disabled]="!clientForm.valid"
+        >
+          {{ action ? "Editar" : "Guardar" }}
+        </button>
+      </form>
+    </section>
+  </nb-card-body>
+</nb-card>

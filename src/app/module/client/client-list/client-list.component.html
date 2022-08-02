@@ -1,0 +1,70 @@
+<nb-card>
+  <nb-card-header class="header">
+    <section>
+      <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
+      Nuestros Clientes
+    </section>
+    <button
+      class="btn-logIn"
+      (click)="addClient()"
+      nbButton
+      shape="semi-round"
+      size="small"
+      hero
+      status="warning"
+    >
+      Registrar cliente
+    </button>
+  </nb-card-header>
+  <nb-card-body>
+    <table [nbTreeGrid]="data" equalColumnsWidth>
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>
+          {{ customColumn | titlecase }}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          <nb-actions size="small">
+            <nb-action
+              icon="eye-outline"
+              (click)="goToDetail(row.data)"
+            ></nb-action>
+            <nb-action
+              icon="checkmark-square-outline"
+              (click)="goToEdit(row.data)"
+            ></nb-action>
+            <nb-action
+              icon="trash-outline"
+              (click)="goToDelete(dialog)"
+            ></nb-action>
+          </nb-actions>
+        </td>
+      </ng-container>
+      <ng-container
+        *ngFor="let column of defaultColumns"
+        [nbTreeGridColumnDef]="column"
+      >
+        <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>
+          {{ column | titlecase }}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          {{ row.data[column] }}
+        </td>
+      </ng-container>
+    </table>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Eliminar Cliente</nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer class="btn-footer">
+      <button nbButton (click)="confirm(true, ref)">Si</button>
+      <button nbButton status="warning" (click)="confirm(false, ref)">
+        No
+      </button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
