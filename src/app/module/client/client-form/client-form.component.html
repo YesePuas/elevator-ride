@@ -1,4 +1,4 @@
-<nb-card class="card-form">
+<nb-card class="card-form" [nbSpinner]="loading" nbSpinnerStatus="warning">
   <nb-card-header class="title-logIn" *ngIf="!action">
     <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
     Registrar nuevo cliente
@@ -15,6 +15,7 @@
     <section class="main-container">
       <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
         <nb-form-field>
+          <label class="label" for="" *ngIf="action == 'detail'">Nombre</label>
           <input
             type="text"
             fullWidth
@@ -25,6 +26,7 @@
           />
         </nb-form-field>
         <nb-form-field>
+          <label class="label" for="" *ngIf="action == 'detail'">Cedula</label>
           <input
             type="text"
             fullWidth
@@ -35,6 +37,9 @@
           />
         </nb-form-field>
         <nb-form-field>
+          <label class="label" for="" *ngIf="action == 'detail'"
+            >Número Teléfono</label
+          >
           <input
             type="text"
             fullWidth
@@ -45,6 +50,9 @@
           />
         </nb-form-field>
         <nb-form-field>
+          <label class="label" for="" *ngIf="action == 'detail'"
+            >Dirección</label
+          >
           <input
             type="text"
             fullWidth

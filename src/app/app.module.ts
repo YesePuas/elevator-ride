@@ -29,6 +29,10 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Patterns } from './core/resources/patterns';
 import { ClientModule } from './module/client/client.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,9 @@ import { ClientModule } from './module/client/client.module';
     NbSelectModule,
     NbActionsModule,
     NbDialogModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [Endpoints, Patterns],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

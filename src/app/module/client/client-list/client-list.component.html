@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="warning">
   <nb-card-header class="header">
     <section>
       <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
@@ -36,7 +36,7 @@
             ></nb-action>
             <nb-action
               icon="trash-outline"
-              (click)="goToDelete(dialog)"
+              (click)="goToDelete(dialog, row.data)"
             ></nb-action>
           </nb-actions>
         </td>

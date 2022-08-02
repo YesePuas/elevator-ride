@@ -1,9 +1,14 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
+  firebase: {
+    projectId: 'elevator-ride',
+    appId: '1:753775915640:web:5e2d35bb254634f86b738d',
+    storageBucket: 'elevator-ride.appspot.com',
+    locationId: 'us-west2',
+    apiKey: 'AIzaSyAn4Rdmn05_xtrAycWzzvLvi1rX97zXs6Q',
+    authDomain: 'elevator-ride.firebaseapp.com',
+    messagingSenderId: '753775915640',
+  },
+  production: false,
 };
 
 /*

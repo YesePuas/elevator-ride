@@ -12,6 +12,7 @@ import {
   NbIconModule,
   NbInputModule,
   NbSelectModule,
+  NbSpinnerModule,
   NbTreeGridModule,
 } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NbButtonModule,
     NbInputModule,
     ReactiveFormsModule,
+    NbSpinnerModule,
   ],
 })
 export class ClientModule {}
